@@ -1,0 +1,499 @@
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8080/realms/spring-microservices-realm
+#          jwk-set-uri: http://localhost:8080/realms/spring-microservices-realm/protocol/openid-connect/certs
+#
+#        client:
+#          registration:
+#            keycloak:
+#              client-id: shopGateway
+#              client-secret: NAptgnXlZSbs0wSXXvZDddcoX5ed96dY
+#              authorization-grant-type: authorization_code
+#              redirect-uri: http://localhost:8073/*
+
+
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          keycloak:
+#            token-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/token
+#            authorization-uri: http://localhost:8080/auth/realms/spring-microservice
+#
+#            user-name-attribute: preferred_username
+#        registration:
+#          keycloak-with-test-scope:
+#            provider: keycloak
+#            client-id: shopGateway
+#            client-secret: jaMD1Pv7DFI4RGbGY0BUHjOxGG9PXYRp
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+#          keycloak-without-test-scope:
+#            provider: keycloak
+#            client-id: spring-without-test-scope
+#            client-secret: f6fc369d-49ce-4132-8282-5b5d413eba23
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+
+#security:
+#  oauth2:
+#    client:
+#      registration:
+#        gateway:
+#          provider: uaa
+#          client-id: gateway
+#          client-secret: secret
+#          authorization-grant-type: authorization_code
+#          redirect-uri-template: "*"
+#          scope: openid,profile,email,resource.read
+#      provider:
+#        uaa:
+#          authorization-uri: http://localhost:8090/uaa/oauth/authorize
+#          token-uri: http://uaa:8090/uaa/oauth/token
+#          user-info-uri: http://uaa:8090/uaa/userinfo
+#          user-name-attribute: sub
+#          jwk-set-uri: http://uaa:8090/uaa/token_keys
+
+
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          jwk-set-uri: http://localhost:8080/auth/realms/spring-microservice
+#        client:
+#          registration:
+#            keycloak:
+#              client-id: shopGateway
+#              client-secret: jaMD1Pv7DFI4RGbGY0BUHjOxGG9PXYRp
+#              authorization-grant-type: authorization_code
+
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          keycloak:
+#            #authorization-uri: http://localhost:9999/auth/realms/upe/protocol/openid-connect/auth
+#            issuer-uri: http://localhost:9999/auth/realms/upe
+#            token-uri: http://localhost:9999/auth/realms/upe/protocol/openid-connect/token
+#        registration:
+#          keycloak:
+#            provider: keycloak
+#            client-id: upe-gateway-service
+#            client-secret: 7c1e4c2f-d128-4f92-a0cd-b52f46220d4e
+#            authorization-grant-type: client_credentials
+
+#spring:
+#  application:
+#    name: shop-gateway
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
+#  main:
+#    web-application-type: reactive
+
+
+#server:
+#  port: 8073
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+#
+#
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          jwk-set-uri: http://localhost:8080/auth/realms/spring-microservice
+#        client:
+#          registration:
+#            keycloak:
+#              client-id: shopGateway
+#              client-secret: jaMD1Pv7DFI4RGbGY0BUHjOxGG9PXYRp
+#              authorization-grant-type: authorization_code
+#  zipkin:
+#    baseUrl: http://zipkin:9411
+#  sleuth:
+#    sampler:
+#      percentage: 1
+#  cloud:
+#    loadbalancer.ribbon.enabled: false
+
+#server:
+#  port: 8073
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+#
+#
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri : http://localhost:8080/auth/realms/spring-microservice
+#          jwk-set-uri : http://localhost:8080/auth/realms/spring-microservice/protocol/openid-connect/certs
+#        client:
+#          registration:
+#            keycloak:
+#              realm: spring-microservice
+#              client-id: shopGateway
+#              client-secret: MRvszEcOJdm5GLqspj4DqcEkNwxVh6ND
+#              authorization-grant-type: authorization_code
+#  zipkin:
+#    baseUrl: http://zipkin:9411
+#  sleuth:
+#    sampler:
+#      percentage: 1
+#  cloud:
+#    loadbalancer.ribbon.enabled: false
+
+#server:
+#  port: 8073
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+#
+#
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri : http://localhost:8080/auth/realms/spring-microservice
+#          jwk-set-uri : http://localhost:8080/auth/realms/spring-microservice/protocol/openid-connect/certs
+#          authorization-uri: http://localhost:8080/auth/realms/spring-microservice/protocol/openid-connect/auth
+#          token-uri: http://localhost:8080/auth/realms/spring-microservice/protocol/openid-connect/token
+#          user-info-uri: "http://localhost:8080/auth/realms/spring-microservice/protocol/openid-connect/userinfo
+#            #user-name-attribute: sub
+#        client:
+#          registration:
+#            keycloak:
+#              # realm: spring-microservice
+#              client-id: shopGateway
+#              client-secret: MRvszEcOJdm5GLqspj4DqcEkNwxVh6ND
+#              #authorization-grant-type: authorization_code
+#  zipkin:
+#    baseUrl: http://zipkin:9411
+#  sleuth:
+#    sampler:
+#      percentage: 1
+#  cloud:
+#    loadbalancer.ribbon.enabled: false
+
+#
+#keycloak:
+#  auth-server-url: http://keycloak.host
+#  realm: myproject
+#  resource: myproject-app
+#  public-client: true
+#  use-resource-role-mappings: true
+
+
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          introspection-uri: http://localhost:8080/realms/spring-microservice/protocol/openid-connect/token/introspect
+#          jwk-set-uri: http://localhost:8080/realms/spring-microservice/protocol/openid-connect/certs
+#          issuer-uri: http://localhost:8080/realms/spring-microservice
+#          client-id: shop-gateway
+#          client-secret: QnxC5oWMzzfzxH9v9zSKIGCmeWvbX9pB
+#          authorization-grant-type: authorization_code
+
+
+
+
+#server:
+#  port: 8073
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+
+
+
+
+
+#spring:
+#  security:
+#    oauth2:
+#           resourceserver:
+#        jwt:
+#              jwk-set-uri: http://localhost:8080/auth/realms/spring-microservice
+#              issuer-uri: http://localhost:8080/realms/spring-microservice
+#     client:
+#          registration:
+#            keycloak:
+#              client-id: shop-gateway
+#              client-secret: QnxC5oWMzzfzxH9v9zSKIGCmeWvbX9pB
+#              authorization-grant-type: authorization_code
+#
+#  cloud:
+#    gateway:
+#      default-filters:
+#        - TokenRelay
+#
+#      zipkin:
+#        baseUrl: http://zipkin:9411
+#      sleuth:
+#        sampler:
+#          percentage: 1
+#      cloud:
+#        loadbalancer.ribbon.enabled: false
+#        gateway:
+#          default-filters:
+#            - TokenRelay
+#          routes:
+#            #- id: shop
+#            uri: hhttp://localhost:8180
+#            predicates:
+#              - Path=/shop/**
+
+
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        id : shop
+#        uri: http://localhost:8180
+#        predicates:
+#          - Path=/shop/**
+
+#spring:
+#  cloud:
+#    gateway:
+#      default-filters:
+#        - TokenRelay
+#      routes:
+#        - id: shop
+#          uri : http://localhost:8180
+#          predicates:
+#           - Path=/shop/**
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          my-keycloak-provider:
+#            issuer-uri: http://localhost:8080/realms/spring-microservice
+#            #jwk-set-uri: http://localhost:8080/realms/spring-microservices/protocol/openid-connect/certs
+#        registration:
+#          keycloak-spring-gateway-client:
+#            provider: my-keycloak-provider
+#            client-id: shop-gateway
+#            client-secret: QnxC5oWMzzfzxH9v9zSKIGCmeWvbX9pB
+#            authorization-grant-type: authorization_code
+#            redirect-uri: '{baseUrl}/login/oauth2/code/keycloak'
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+
+
+          #zipkin:
+          #baseUrl: http://zipkin:9411
+          # sleuth:
+          # sampler:
+          # percentage: 1
+#      cloud:
+#        loadbalancer.ribbon.enabled: false
+#        gateway:
+#          default-filters:
+#            - TokenRelay
+#          routes:
+#            - id: shop
+#            uri: hhttp://localhost:8180
+#            predicates:
+#              - Path=/shop/**
+
+
+
+#server:
+#  port: 8180
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+#
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8080/realms/spring-microservice
+#          jwk-set-uri: http://localhost:8080/realms/spring-microservices/protocol/openid-connect/certs
+#
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#      dialect: org.hibernate.dialect.PostgreSQLDialect
+#    properties:
+#      hibernate.jdbc.batch_size: 20
+#      hibernate.cache.use_query_cache: false
+#      hibernate.cache.use_second_level_cache: false
+#      hibernate.cache.use_structured_entries: false
+#      hibernate.cache.use_minimal_puts: false
+#  datasource:
+#    #SPRING_DATASOURCE_URL environment variable will be something like -> jdbc:sqlserver://MySqlServer\\MyInstance:1433;DatabaseName=MyDbName;
+#    url: jdbc:postgresql://localhost:5432/cloudshop
+#    username: postgres
+#    password: 0510208486q
+#    #driverClassName: org.hibernate.dialect.PostgreSQLDialect
+
+#spring:
+#  cloud:
+#    loadbalancer.ribbon.enabled: false
+#  gateway:
+#    discovery:
+#      #locator:
+#      #enabled: true
+#      #default-filters:
+#      #- TokenRelay
+#      routes:
+#        - id: shop
+#      #uri : lb://shop
+#      uri : http://localhost:8180
+#      predicates:
+#      - Path=/shop/**
+#loadbalancer.ribbon.enabled: false
+
+#server:
+#  port: 8073
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+#
+#
+#
+#
+#
+#
+#spring:
+#cloud:
+#gateway:
+#discovery.locator:
+#enabled: true
+#lowerCaseServiceId: true
+
+
+#server:
+#  port: 8073
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+#spring:
+#  cloud:
+#   gateway:
+#     discovery.locator:
+#      enabled: true
+#      lowerCaseServiceId: true
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          my-keycloak-provider:
+#            issuer-uri: http://localhost:8080/realms/spring-microservice
+#            jwk-set-uri: http://localhost:8080/realms/spring-microservices/protocol/openid-connect/certs
+#        registration:
+#          keycloak-spring-gateway-client:
+#            provider: my-keycloak-provider
+#            client-id: shop-gateway
+#            client-secret: QnxC5oWMzzfzxH9v9zSKIGCmeWvbX9pB
+#            authorization-grant-type: authorization_code
+#            redirect-uri: '{baseUrl}/login/oauth2/code/keycloak'
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+
+#server:
+#  port: 8073
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+#spring:
+#  cloud:
+#    gateway:
+#      default-filters:
+#        - TokenRelay
+#      discovery.locator:
+#        enabled: true
+#        lowerCaseServiceId: true
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          my-keycloak-provider:
+#            issuer-uri: http://localhost:8080/realms/spring-microservice
+#            jwk-set-uri: http://localhost:8080/realms/spring-microservices/protocol/openid-connect/certs
+#        registration:
+#          keycloak-spring-gateway-client:
+#            provider: my-keycloak-provider
+#            client-id: shop-gateway
+#            client-secret: QnxC5oWMzzfzxH9v9zSKIGCmeWvbX9pB
+#            authorization-grant-type: authorization_code
+#            redirect-uri: '{baseUrl}/login/oauth2/code/keycloak'
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"

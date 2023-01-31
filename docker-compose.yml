@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14.1
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0510208486q
+      POSTGRES_DB: kdb
+    ports:
+      - 5432:5432
+  kc:
+    #image: bitnami/keycloak:latest
+    image: jboss/keycloak
+    #image: quay.io/keycloak/keycloak:legacy
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: db
+      DB_DATABASE: kdb
+      DB_USER: postgres
+      DB_SCHEMA: public
+      DB_PASSWORD: 0510208486q
+      #KEYCLOAK_HOSTNAME: backend-keycloak-auth
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
